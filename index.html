@@ -5,9 +5,63 @@
 
 <link rel="stylesheet" href="css/style.css">
 
+<link href='//fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
 <script src="js/libs/modernizr.min.js"></script>
 <script src="js/libs/jquery.min.js"></script>
 <script src="js/libs/jquery.appear-1.1.1.modified.js"></script>
+
+<script>
+	if (Modernizr.csstransitions) {
+		function preloadImages(imgs, callback) {
+			var cache = [],
+				imgsTotal = imgs.length,
+				imgsLoaded = 0;
+	
+			$(imgs).each(function (i, img) {
+				var cacheImage = document.createElement('img');
+				cacheImage.onload = function () {
+					if (++imgsLoaded == imgsTotal) callback();
+				};
+				cacheImage.src = $(img).attr('src');
+				cache.push(cacheImage);
+			});
+		};
+		$.fn.trans = function () {
+			var t = arguments[0],
+				d = arguments[1] || '';
+			if (t) {
+				$.each(this, function (i, e) {
+					$(['-webkit-', '-moz-', '-o-', '-ms-', '']).each(function (i, p) {
+						$(e).css(p + 'transition' + d, t);
+					});
+				});
+			}
+		};
+			
+		$(function(){
+			//preload images contained within elements that need to animate
+			preloadImages($('.services img, .featured img'), function () {
+				$('.services, .featured').appear({
+					once: true,
+					forEachVisible: function (i, e) {
+						$(e).data('delay', i);
+					},
+					appear: function () {
+						var delay = 150,
+							stagger = 800,
+							sequential_delay = stagger * parseInt($(this).data('delay')) || 0;
+	
+						$(this).children().each(function (i, e) {
+							$(e).trans(i * delay + sequential_delay + 'ms', '-delay');
+						});
+						$(this).removeClass('fadeIn');
+					}
+				});
+			});
+		});
+	}
+</script>
 
 <title>Css animation test</title>
 
@@ -30,8 +84,29 @@
 		<hr>
 
 		<section>
-			
+			<div class="module">
+				<p>
+					<img src="http://placehold.it/145x62" alt="">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, recusandae tenetur vel sequi harum quam quaerat est doloremque! Odit, voluptatum!
+				</p>
+			</div>
+
+			<div class="module">
+				<p>
+					<img src="http://placehold.it/145x62" alt="">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, recusandae tenetur vel sequi harum quam quaerat est doloremque! Odit, voluptatum!
+				</p>
+			</div>
+
+			<div class="module">
+				<p>
+					<img src="http://placehold.it/145x62" alt="">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, recusandae tenetur vel sequi harum quam quaerat est doloremque! Odit, voluptatum!
+				</p>
+			</div>
 		</section>	
+
+		<hr>
 	</div>
 </body>
 

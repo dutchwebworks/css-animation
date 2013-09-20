@@ -1,4 +1,51 @@
+@import '_config.scss';
+
+/* Common
+================================================ */
+
+body, p {
+	font-family: Georgia, sans-serif;
+	font-family: 1rem;
+	line-height: 1.5;
+	color: #777;
+}
+
+h1,
+a {
+	color: magenta;
+}
+
+section {
+	overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Lobster';	
+}
+
+h1 {
+	font-size: 2rem;
+}
+
+/* Wrapper
+================================================ */
+
 #wrapper {
 	width: 500px;
 	margin: 0 auto;
+}
+
+/* Module
+================================================ */
+
+.module {
+	width: 33%;
+	padding: 0 10px;
+	float: left;
+	@include box-sizing;
+
+	img {
+		max-width: 100%;
+		height: auto;
+	}
 }

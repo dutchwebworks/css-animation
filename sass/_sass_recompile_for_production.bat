@@ -1,0 +1,1 @@
+sass --style expanded -f --update ./:../css

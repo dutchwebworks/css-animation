@@ -1,0 +1,45 @@
+// ---------------------------------------------
+// Global settings
+// ---------------------------------------------
+
+// CSS vendor prefixes
+$experimental-support-vendor-prefixes: true;
+$vendor-prefixes: ("-webkit-","-moz-", "-o-", "-ms-"); // Used by _mixins.scss prefix-selector() and prefix-value() mixins
+
+// ---------------------------------------------
+// Font families
+// ---------------------------------------------
+
+$font-default-headings: Times, 'Times New Roman', serif;
+$font-default-body: Verdana, Helvetica, sans-serif;
+
+// ---------------------------------------------
+// Font sizes
+// ---------------------------------------------
+
+$font-default-size: 12px;
+$font-default-line-height: 18px;
+
+// ---------------------------------------------
+// Colors
+// ---------------------------------------------
+
+$color-01: #f00;			// description
+$color-02: #fcc;			// description
+$color-03: #f99;			// description
+
+$color-selection: #fe57a1; 	// The background-color for when user selects text
+
+// ---------------------------------------------
+// Directories
+// ---------------------------------------------
+
+$dir-font: '../fonts';
+$dir-img: '../img';
+
+// ---------------------------------------------
+// Other required Sass files
+// ---------------------------------------------
+
+@import 
+	"../../base/scss/_mixins.scss";

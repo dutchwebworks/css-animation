@@ -38,17 +38,19 @@
 				});
 			}
 		};
+
+		document.write('<link rel="stylesheet" href="css/animation.css" />');
 			
 		$(function(){
 			//preload images contained within elements that need to animate
-			preloadImages($('.services img, .featured img'), function () {
-				$('.services, .featured').appear({
+			preloadImages($('#blocks .module img'), function () {
+				$('#blocks').appear({
 					once: true,
 					forEachVisible: function (i, e) {
 						$(e).data('delay', i);
 					},
 					appear: function () {
-						var delay = 150,
+						var delay = 250,
 							stagger = 800,
 							sequential_delay = stagger * parseInt($(this).data('delay')) || 0;
 	
@@ -71,11 +73,14 @@
 		<section>
 			<article>
 				<h1>Css animation test</h1>
-				
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, molestiae accusantium rem et impedit similique possimus expedita eveniet in quo. Vel, laudantium sint odit porro sunt blanditiis et aut dolorum rem earum cumque eligendi optio quisquam ea nostrum adipisci fugit.</p>
+				<p>Velit, voluptas recusandae tenetur obcaecati amet harum a ut porro aspernatur dolorem fugiat quia error illo officiis natus ipsam veritatis animi ducimus dolore autem consequuntur iure iste quas rerum ullam voluptates nemo debitis voluptate deleniti laboriosam hic consectetur quae reprehenderit.</p>
+				<p>Nam, porro, laboriosam, ex, aspernatur obcaecati amet a velit minus dolores laudantium facere aliquid explicabo iste pariatur error culpa odio illo. Suscipit, a, ea, enim, cum ut iste repellendus eveniet assumenda voluptatum iusto repudiandae repellat recusandae aliquam neque corporis architecto!</p>
+				<p>Reprehenderit, possimus, at quam ut explicabo repellat reiciendis dolorem? Eveniet, porro, deserunt velit labore veritatis placeat accusamus maxime aperiam minus sequi recusandae ea neque? Exercitationem, expedita, tenetur, amet, ea corrupti in quis maxime magnam dolores rem similique nihil soluta nesciunt!</p>
+
 				<ul>
-					<li>
-						Based on <a href="http://www.creativebloq.com/css3/getting-css-animations-trigger-1132906">this article by CreativeBloq.com &#8594; Getting CSS animations to trigger at the right time</a>
-					</li>
+					<li>Based on <a href="http://www.creativebloq.com/css3/getting-css-animations-trigger-1132906">this article by CreativeBloq.com &#8594; Getting CSS animations to trigger at the right time</a></li>
 					<li>See a working <a href="_demo/">_demo/</a></li>
 				</ul>
 			</article>
@@ -83,10 +88,15 @@
 
 		<hr>
 
-		<section>
+		<p>
+			<button id="showAnimation">Toggle</button>
+		</p>
+
+		<section id="blocks">
 			<div class="module">
 				<p>
 					<img src="http://placehold.it/145x62" alt="">
+					<h4>Great expectations</h4>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, recusandae tenetur vel sequi harum quam quaerat est doloremque! Odit, voluptatum!
 				</p>
 			</div>
@@ -94,6 +104,7 @@
 			<div class="module">
 				<p>
 					<img src="http://placehold.it/145x62" alt="">
+					<h4>Great findings</h4>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, recusandae tenetur vel sequi harum quam quaerat est doloremque! Odit, voluptatum!
 				</p>
 			</div>
@@ -101,17 +112,32 @@
 			<div class="module">
 				<p>
 					<img src="http://placehold.it/145x62" alt="">
+					<h4>Great animation</h4>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, recusandae tenetur vel sequi harum quam quaerat est doloremque! Odit, voluptatum!
 				</p>
 			</div>
 		</section>	
 
 		<hr>
+
+		<article>
+			<p>Consectetur, sint, quibusdam, consequatur ratione a error quae doloremque animi in laudantium nam sed provident ipsam? Eius, ab, quidem, eveniet reprehenderit sapiente qui quam explicabo dolor illum dolorum nostrum aliquid culpa ratione. Eaque ipsum corporis sit ut repudiandae adipisci asperiores.</p>
+			<p>Magni, eveniet, dolor debitis atque error tempora officiis deserunt explicabo fugiat sapiente repudiandae voluptas hic a odit consequuntur facilis laboriosam esse aspernatur voluptatem et ducimus accusamus inventore vero? Dolores libero sapiente perferendis fugiat blanditiis temporibus explicabo fugit sunt doloremque labore.</p>
+			<p>Quam, incidunt, esse nisi commodi odit quidem dolorum dicta tempore nobis voluptates. Vel, saepe, eius, laudantium minus sit perferendis tempore earum sed obcaecati adipisci minima inventore dolor laborum error sint dolore aliquam iusto suscipit at alias provident magnam itaque illum.</p>
+			<p>Eos, laboriosam optio aspernatur fugiat minus similique praesentium consequatur facilis architecto officia? Facere, aspernatur, at eum est velit debitis ut consequuntur atque autem laboriosam cumque dolores vel provident eius libero adipisci sint. Aut, ipsum quam necessitatibus enim suscipit in reprehenderit!</p>
+		</article>
+
+		<hr>
 	</div>
 </body>
 
 <script>
-	if (Modernizr.csstransitions) document.write('<link rel="stylesheet" href="css/animation.css" />');
+	$(document).ready(function(){
+		$('#showAnimation').on('click', function(){
+			$('#blocks .module').toggleClass('fadeIn');
+			console.log('clicked');
+		});
+	});
 </script>
 
 </html>

@@ -15,17 +15,27 @@ The CSS in this demo is compiled by Sass. But you don't actually need Sass to pl
 
 ## What it does
 
-Scroll down the `index.html` page, when a certain (top) **percentage of element** `#blocks` comes into the **browser viewport**, jQuery Appear (plugin) removes CSS classname `.animateBegin` from the HTML.
+Scroll down the `index.html` page, when a certain (top) **percentage of element** `#blocks` comes into the **browser viewport**, jQuery Appear (plugin) **removes CSS classname** `.animateBegin` from the HTML.
 
 **Then CSS automatically starts to animate the CSS properties.**
 
+## The CSS
+
+The way the **animation is added**, via CSS, actually **works in reverse**.
+
+The animation parts are set on the **(extra) CSS classname** `.animateBegin`. When jQuery Appear **removes this classname** from the element, the CSS **animates back to the default** CSS properties set on the (default) state of the element.
+
 ## jQuery Appear
 
-Using the **modified** jQuery Appear plugin (and some custom Javascript) the **animation delay** is set on  **all it's child elements** (inline vendor prefixed). This gives a nice animation delay, per child item, and prevents these child items from animating all at once. Now they **animate sequentually**.
+Using the **modified** jQuery **Appear** plugin (and some custom Javascript) the **animation delay** is set on  **all it's child elements** (with inline vendor prefixes). This gives a nice animation delay, per child item, and prevents these child items from animating all at once. Now they **animate sequentually**. 
+
+See `js/animations.js` for more comments.
 
 ## Browser support
 
-Using Modernizr **browser feature dectection** (and jQuery), the `animations.css` file is only loaded if the web browser supports CSS animation. This nicely utilizes **progressive-enhancement**!
+Using Modernizr **browser feature dectection** (in jQuery), the `css/animations.css` file is only loaded if the web browser **supports CSS animation**. 
+
+This nicely utilizes **progressive-enhancement**!
 
 ### Tested and working in cross platform modern (desktop & mobile) web browsers
 

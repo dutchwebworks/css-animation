@@ -1,6 +1,10 @@
 /* Animations */
 @import '_config.scss';
 
+// jQuery removes the .animateBegin class when the items
+// comes into the browser viewport
+// Then CSS animates the CSS properties
+
 // Animate from:
 #blocks.animateBegin .module {
 	opacity: 0;

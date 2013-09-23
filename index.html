@@ -5,65 +5,14 @@
 
 <link rel="stylesheet" href="css/style.css">
 
+<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
 <link href='//fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 
 <script src="js/libs/modernizr.min.js"></script>
 <script src="js/libs/jquery.min.js"></script>
 <script src="js/libs/jquery.appear-1.1.1.modified.js"></script>
-
-<script>
-	if (Modernizr.csstransitions) {
-		function preloadImages(imgs, callback) {
-			var cache = [],
-				imgsTotal = imgs.length,
-				imgsLoaded = 0;
-	
-			$(imgs).each(function (i, img) {
-				var cacheImage = document.createElement('img');
-				cacheImage.onload = function () {
-					if (++imgsLoaded == imgsTotal) callback();
-				};
-				cacheImage.src = $(img).attr('src');
-				cache.push(cacheImage);
-			});
-		};
-		$.fn.trans = function () {
-			var t = arguments[0],
-				d = arguments[1] || '';
-			if (t) {
-				$.each(this, function (i, e) {
-					$(['-webkit-', '-moz-', '-o-', '-ms-', '']).each(function (i, p) {
-						$(e).css(p + 'transition' + d, t);
-					});
-				});
-			}
-		};
-
-		document.write('<link rel="stylesheet" href="css/animation.css" />');
-			
-		$(function(){
-			//preload images contained within elements that need to animate
-			preloadImages($('#blocks .module img'), function () {
-				$('#blocks').appear({
-					once: true,
-					forEachVisible: function (i, e) {
-						$(e).data('delay', i);
-					},
-					appear: function () {
-						var delay = 250,
-							stagger = 800,
-							sequential_delay = stagger * parseInt($(this).data('delay')) || 0;
-	
-						$(this).children().each(function (i, e) {
-							$(e).trans(i * delay + sequential_delay + 'ms', '-delay');
-						});
-						$(this).removeClass('fadeIn');
-					}
-				});
-			});
-		});
-	}
-</script>
+<script src="js/animations.js"></script>
 
 <title>Css animation test</title>
 
@@ -73,6 +22,12 @@
 		<section>
 			<article>
 				<h1>Css animation test</h1>
+
+				<h2>Scroll down to see the CSS animation</h2>
+
+				<p>
+					When items come into view (browser viewport) a CSS class is removed which starts a CSS animation.
+				</p>
 
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, molestiae accusantium rem et impedit similique possimus expedita eveniet in quo. Vel, laudantium sint odit porro sunt blanditiis et aut dolorum rem earum cumque eligendi optio quisquam ea nostrum adipisci fugit.</p>
 				<p>Velit, voluptas recusandae tenetur obcaecati amet harum a ut porro aspernatur dolorem fugiat quia error illo officiis natus ipsam veritatis animi ducimus dolore autem consequuntur iure iste quas rerum ullam voluptates nemo debitis voluptate deleniti laboriosam hic consectetur quae reprehenderit.</p>
@@ -88,31 +43,34 @@
 
 		<hr>
 
-		<p>
+		<!-- <p>
 			<button id="showAnimation">Toggle</button>
-		</p>
+		</p> -->
 
-		<section id="blocks">
+		<section id="blocks" class="animateBegin">
 			<div class="module">
+				<h4>Fun expectations</h4>
+
 				<p>
 					<img src="http://placehold.it/145x62" alt="">
-					<h4>Great expectations</h4>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, recusandae tenetur vel sequi harum quam quaerat est doloremque! Odit, voluptatum!
 				</p>
 			</div>
 
 			<div class="module">
+				<h4>Great findings</h4>
+
 				<p>
 					<img src="http://placehold.it/145x62" alt="">
-					<h4>Great findings</h4>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, recusandae tenetur vel sequi harum quam quaerat est doloremque! Odit, voluptatum!
 				</p>
 			</div>
 
 			<div class="module">
+				<h4>Great animation</h4>
+
 				<p>
 					<img src="http://placehold.it/145x62" alt="">
-					<h4>Great animation</h4>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, recusandae tenetur vel sequi harum quam quaerat est doloremque! Odit, voluptatum!
 				</p>
 			</div>
@@ -134,7 +92,7 @@
 <script>
 	$(document).ready(function(){
 		$('#showAnimation').on('click', function(){
-			$('#blocks .module').toggleClass('fadeIn');
+			$('#blocks .module').toggleClass('animateBegin');
 			console.log('clicked');
 		});
 	});

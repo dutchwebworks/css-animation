@@ -37,21 +37,36 @@ h4 {
 ================================================ */
 
 #wrapper {
-	width: 500px;
-	margin: 0 auto;
+	@media (min-width: 500px) {		
+		width: 500px;
+		margin: 0 auto;
+	}
 }
 
 /* Module
 ================================================ */
 
 .module {
-	width: 33%;
 	padding: 0 10px;
-	float: left;
 	@include box-sizing;
+
+	@media (min-width: 500px) {
+		width: 33%;
+		float: left;		
+	}
+
+	@media (max-width: 500px) {
+		p img {
+			min-width: 100%;
+		}		
+	}
 
 	img {
 		max-width: 100%;
 		height: auto;
 	}
+}
+
+#blocks {
+	overflow: hidden;
 }

@@ -12,10 +12,6 @@ a {
   color: magenta;
 }
 
-section {
-  overflow: hidden;
-}
-
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Lobster';
 }
@@ -28,6 +24,10 @@ h4 {
   font-size: 1.2rem;
   margin: 0;
   color: gold;
+}
+
+section {
+  overflow: hidden;
 }
 
 /* Wrapper
@@ -65,6 +65,8 @@ h4 {
   height: auto;
 }
 
+/* Blocks
+================================================ */
 #blocks {
   overflow: hidden;
 }

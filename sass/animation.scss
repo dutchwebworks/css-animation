@@ -1,21 +1,21 @@
-/* Animations */
-@import '_config.scss';
-
 // jQuery removes the .animateBegin class when the items
-// comes into the browser viewport
+// comes into the browser viewport (see animations.js)
 // Then CSS animates the CSS properties
 
-// Animate from:
+// Import Sass config file
+@import '_config.scss';
+
+// Animate from ...
 #blocks.animateBegin .module {
 	opacity: 0;
 	bottom: -70px;
 }
 
-// ... animate to:
+// ... to:
 #blocks .module {
 	color: #333;
 	opacity: 1;
 	position: relative;
 	bottom: 0px;
-	@include prefix-selector(transition, all 1200ms cubic-bezier(0.230, 1.000, 0.320, 1.000) 0ms);
+	@include prefix-selector(transition, all 1200ms cubic-bezier(0.230, 1.000, 0.320, 1.000) 0ms); // Animate all CSS properties using bezier curve
 }

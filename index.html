@@ -11,8 +11,6 @@
 
 <script src="js/libs/modernizr.min.js"></script>
 <script src="js/libs/jquery.min.js"></script>
-<script src="js/libs/jquery.appear-1.1.1.modified.js"></script>
-<script src="js/animations.js"></script>
 
 <title>Css animation test</title>
 
@@ -42,10 +40,6 @@
 		</section>
 
 		<hr>
-
-		<!-- <p>
-			<button id="showAnimation">Toggle</button>
-		</p> -->
 
 		<section id="blocks" class="animateBegin">
 			<div class="module">
@@ -89,13 +83,7 @@
 	</div>
 </body>
 
-<script>
-	$(document).ready(function(){
-		$('#showAnimation').on('click', function(){
-			$('#blocks .module').toggleClass('animateBegin');
-			console.log('clicked');
-		});
-	});
-</script>
+<script src="js/libs/jquery.appear-1.1.1.modified.js"></script>
+<script src="js/animations.js"></script>
 
 </html>
